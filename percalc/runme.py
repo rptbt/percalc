@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from math import *
 import curses
 from curses import wrapper
@@ -51,7 +53,7 @@ def calcmain(stdscr):
          
         elif c == 0x1b:
             break
-        elif c in (curses.KEY_BACKSPACE, '\b', '\x7f'):
+        elif c in (curses.KEY_BACKSPACE, '\b', 127, 263):
             string_buffer = string_buffer[:-1]
         else:
             string_buffer += (chr(c))
