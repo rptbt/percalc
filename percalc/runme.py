@@ -33,7 +33,7 @@ def calcmain(stdscr):
             if string_buffer != "" and pass_paren_lint:
                 stdscr.addstr(num_lines-1, 0, "{}".format(string_buffer))
                 res = eval(string_buffer.replace("^", "**"))
-            stdscr.addstr(last_curs_start_y+1, last_curs_start_x+1, "Result: {}".format(res))
+            stdscr.addstr(last_curs_start_y+1, last_curs_start_x+1, "String Buffer: {} Result: {}".format(string_buffer, res))
             stdscr.refresh()
             if last_curs_start_y + 3 >= num_lines or last_curs_start_x +3 >= num_cols:
                 stdscr.clear()
@@ -57,6 +57,9 @@ def calcmain(stdscr):
             string_buffer = string_buffer[:-1]
         else:
             string_buffer += (chr(c))
+        stdscr.addstr(num_lines-1, 0, "Last Character interpreted as {}".format(c))
+        stdscr.move(last_curs_start_y,last_curs_start_x)
+        stdscr.refresh()
         
     return
 
